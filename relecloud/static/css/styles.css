@@ -1,0 +1,57 @@
+/* static/css/styles.css */
+
+body {
+    background-image: url("../image/cohete.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #f0f0f0; /* Color de texto claro para mejorar la legibilidad */
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff; /* Blanco para el título */
+    margin-top: 20px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white; /* Fondo blanco para la tabla */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd; /* Bordes más claros */
+}
+
+th {
+    background-color: #007bff; /* Color azul para encabezados */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(240, 240, 240, 0.5); /* Fila alterna más clara */
+}
+
+tr:hover {
+    background-color: rgba(0, 123, 255, 0.1); /* Resaltado azul al pasar el ratón */
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin: 20px;
+    text-decoration: none;
+    color: #00ffcc; /* Color cian brillante para enlaces */
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ffffff; /* Cambia a blanco al pasar el ratón */
+}
+

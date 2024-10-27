@@ -1,0 +1,69 @@
+<!-- travel/templates/index.html -->
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Cruceros Disponibles{% endblock %}
+
+{% block content %}
+<h2>Cruceros Disponibles</h2>
+
+<!-- Formulario para añadir cruceros -->
+<div class="container">
+    <h3>Añadir Nuevo Crucero</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}  <!-- Aquí se renderiza el formulario con Crispy Forms -->
+        <button type="submit" class="btn btn-primary">Añadir Crucero</button>
+    </form>
+</div>
+
+<table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th>Tipo de Crucero</th>
+            <th>Duración (días)</th>
+            <th>Precio</th>
+            <th>Fecha de Salida</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if cruceros %}
+            {% for crucero in cruceros %}
+            <tr>
+                <td>{{ crucero.tipo_crucero.name }}</td>
+                <td>{{ crucero.duracion_dias }}</td>
+                <td>${{ crucero.precio }}</td>
+                <td>{{ crucero.fecha_salida }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="4">No hay cruceros disponibles.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+<h2>Destinos Disponibles</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre del Destino</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if destinos %}
+            {% for destino in destinos %}
+            <tr>
+                <td>{{ destino.name }}</td>
+                <td>{{ destino.descrition }}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="2">No hay destinos disponibles.</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
